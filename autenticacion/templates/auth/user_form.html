@@ -1,0 +1,18 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="card-deck mt-3">
+        <div class="col-md-4">
+            <div class="card" style="width: 28rem; backgroun-color: grey;">
+                <div class="card-body">
+                    <form method="post">{% csrf_token %}
+                        {{ form.as_p}}
+                        <input type="submit" value="ENVIAR">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

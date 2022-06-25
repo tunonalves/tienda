@@ -1,0 +1,23 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="card-deck mt-3">
+        <div class="col-md-4">
+            <div class="card" style="width: 28rem; backgroun-color: grey;">
+                <div class="card-body">
+                    <h5 class="card-title"><p>TITULO : <i>{{post.titulo}}</i></p></h5>
+                        <p>CONTENIDO : <i>{{post.contenido}}</i></p>
+                        <p>AUTOR : <i>{{post.autor}}</i></p>
+                        {% for categoria in post.categorias.all %}
+                        <p>CATEGORIA: <i>{{categoria.nombre}}</i></p>
+                        {% endfor %}
+                        <p>CREADO : <i>{{post.created}}</i></p>
+                        <p>ACTUALIZADO : <i>{{post.updated}}</i></p>
+                        <p style="text-align: center"> <a class="btn btn-secondary" href="{% url 'post_list' %}">REGRESAR</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

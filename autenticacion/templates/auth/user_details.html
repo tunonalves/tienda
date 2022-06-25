@@ -1,0 +1,19 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="card-deck mt-3">
+        <div class="col-md-4">
+            <div class="card" style="width: 28rem; backgroun-color: grey;">
+                <div class="card-body">
+                    <h5 class="card-title"><p>Username : <i>{{user.username}}</i></p></h5>
+                        <p>Email : <i>{{user.email}}</i></p>
+                        <p>Name : <i>{{user.first_name}}</i></p>
+                        <p>Lastname : <i>{{user.last_name}}</i></p>
+                        <p style="text-align: center"> <a class="btn btn-secondary" href="{% url 'user_list' %}">REGRESAR</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

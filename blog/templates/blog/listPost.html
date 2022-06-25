@@ -1,0 +1,22 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="card-deck mt-3">
+        {% for post in object_list %}
+        <div class="col-md-4">
+            <div class="card" style="width: 22rem; backgroun-color: grey;">
+                <div class="card-body">
+                    <h5 style="text-align: center" class="card-title">{{post}}</h5>
+                    <p style="text-align: center">
+                    <a href="{% url 'post_detalle' post.id %}" class="btn btn-secondary">DETAIL</a> 
+                    <a href="{% url 'post_editar' post.id %}" class="btn btn-secondary">UPDATE</a> 
+                    <a href="{% url 'post_borrar' post.id %}" class="btn btn-secondary">DELETE</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

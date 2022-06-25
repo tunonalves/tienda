@@ -1,0 +1,44 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+      <a class="btn btn-outline-secondary btn-lg btn-block" href="{% url 'post_crear' %}">NEW POST</a>
+      <a class="btn btn-outline-secondary btn-lg btn-block" href="{% url 'post_list' %}">LIST POST</a>
+    {% endif %}
+    {% for post in posts %}
+    <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 50%;">
+            <div class="intro-text left-0 text-center bg-secondary p-5 rounded">
+              <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower">{{post.titulo}}</span>
+                <span class="section-heading-upper">{{post.contenido}}</span>
+              </h2>             
+              <div style="text-align: left; font-size: 0.8em;">         
+                Autor: {{post.autor}} 
+                <br> 
+                {% for categoria in post.categorias.all %}
+                  Categoria: {{categoria.nombre}} &nbsp;&nbsp;&nbsp;
+                {% endfor %}
+                <br>
+                Creado: {{post.created}} 
+                <br>
+                Actualizado: {{post.updated}} 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endfor %}
+    <section>
+        <div style="width: 75%; margin: auto; text-align: center; color: white;">        
+          Categorías: 
+          {% for post in posts %}
+            {% for categoria in post.categorias.all %}
+           <a href="{% url 'categoria' categoria.id %}" class="linksCategorias">{{categoria.nombre}} </a>&nbsp;&nbsp;&nbsp;
+            {% endfor %}     
+          {% endfor %}       
+        </div>
+    </section>
+{% endblock %}
