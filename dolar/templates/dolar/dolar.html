@@ -1,0 +1,28 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+
+<table class="table table-bordered" style="color: white">
+  <thead>
+    <tr>
+      <th colspan="4" class="text-center">U$S</th>
+    </tr>
+    <tr>
+      <th>COTIZACION</th>
+      <th>FECHA</th>
+      <th>COMPRA</th>
+      <th>VENTA</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key,value in cotizacion.items %}
+    <tr class="text-center">
+      <th scope="row">{{key | upper}}</th>
+      <td>{{value.fecha}}</td>
+      <td>{{value.compra}}</td>
+      <td>{{value.venta}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

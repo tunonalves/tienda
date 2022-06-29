@@ -52,8 +52,11 @@
           <li class="nav-item {% if request.path == '/contacto/' %}active{% endif %} px-lg-4">
             <a class="btn btn-secondary btn-lg" href="{% url 'Contacto' %}">CONTACT</a>
           </li>
-          <li class="nav-item {% if request.path|slice:':6' == '/blog/' %}active{% endif %} px-lg-4">
+          <li class="nav-item {% if request.path == '/blog/' %}active{% endif %} px-lg-4">
             <a class="btn btn-secondary btn-lg" href="{% url 'Blog' %}">BLOG</a>
+          </li>
+          <li class="nav-item {% if request.path == '/dolar/' %}active{% endif %} px-lg-4">
+            <a class="btn btn-secondary btn-lg" href="{% url 'dolar' %}">U$S</a>
           </li>
           <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
             <a class="btn btn-secondary btn-lg" href="https://tunonalves.wixsite.com/federico">ABOUT</a>
@@ -61,7 +64,7 @@
           {% if user.is_authenticated %}    
           </li>
           <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
-            <a class="btn btn-secondary btn-lg" href="{% url 'edit' %}">EDIT CONTACT</a>
+            <a class="btn btn-secondary btn-lg" href="{% url 'edit' %}">EDIT</a>
           </li>   
           {% endif %}
         </ul>
